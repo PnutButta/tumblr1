@@ -19,8 +19,11 @@ import AlamofireImage
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.rowHeight = 200
         /// Network request snippet
+       
         let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
+        // let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         session.configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         
@@ -29,7 +32,7 @@ import AlamofireImage
                 print(error.localizedDescription)
             } else if let data = data,
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                print(dataDictionary)
+             //   print(dataDictionary)
                 
                 // Get the dictionary from the response key
                 let responseDictionary = dataDictionary["response"] as! [String: Any]
@@ -63,8 +66,21 @@ import AlamofireImage
             let urlString = originalSize["url"] as! String
             let url = URL(string: urlString)!
             
-            cell.newImage.af_setImage(withURL: url)
+            print(url)
+            if cell.newPhoto != nil {
+                cell.newPhoto.af_setImage(withURL: url)
+            }
+            
+            
+            
         }
+       /*
+            if let urlly = url {
+                print (urlly)
+                cell.newImage.af_setImage(withURL: urlly)
+            }
+    
+        } */
         return cell
     }
         
