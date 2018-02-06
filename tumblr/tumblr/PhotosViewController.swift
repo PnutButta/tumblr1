@@ -6,17 +6,19 @@
 //
 
 import UIKit
-import Foundation
 import AlamofireImage
 
-class PhotosViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+@objc(PhotosViewController) class PhotosViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var posts: [[String: Any]] = []
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         /// Network request snippet
         let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -40,8 +42,6 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
         task.resume()
-        tableView.delegate = self
-        tableView.dataSource = self
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,13 +49,6 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "This is row \(indexPath.row)"
-        
-        return cell
-    }
-    
-    func tableView( tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell") as! PhotoCell
         
         // Configure YourCustomCell using the outlets that you've defined.
@@ -68,9 +61,9 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             let photo = photos[0]
             let originalSize = photo["original_size"] as! [String: Any]
             let urlString = originalSize["url"] as! String
-            let url = URL(string: urlString)
+            let url = URL(string: urlString)!
             
-            cell.newImage.af_setImage(withURL: url!)
+            cell.newImage.af_setImage(withURL: url)
         }
         return cell
     }

@@ -15,8 +15,6 @@
 		0FFC16BA202922EE00D2C02F /* tumblrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC16B9202922EE00D2C02F /* tumblrUITests.swift */; };
 		0FFC16C82029251700D2C02F /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC16C72029251700D2C02F /* PhotosViewController.swift */; };
 		0FFC16CA2029269900D2C02F /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC16C92029269900D2C02F /* PhotoCell.swift */; };
-		0FFC16CB2029281F00D2C02F /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC16C92029269900D2C02F /* PhotoCell.swift */; };
-		0FFC16CC2029282000D2C02F /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFC16C92029269900D2C02F /* PhotoCell.swift */; };
 		17E6B374DEB26E79BCDF425E /* Pods_tumblr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4748D052D68556E7B610A4EF /* Pods_tumblr.framework */; };
 		32DCF4AC53A7D7562FB789D4 /* Pods_tumblrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBAE68980A91E332CBD0C0F /* Pods_tumblrUITests.framework */; };
 		55636A238A2E635C23C2CF2B /* Pods_tumblrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 435FFBD2E6E90340B1F69528 /* Pods_tumblrTests.framework */; };
@@ -479,7 +477,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FFC16CB2029281F00D2C02F /* PhotoCell.swift in Sources */,
 				0FFC16AF202922EE00D2C02F /* tumblrTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,7 +485,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FFC16CC2029282000D2C02F /* PhotoCell.swift in Sources */,
 				0FFC16BA202922EE00D2C02F /* tumblrUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/angelc/Documents/Semesters/SPR18/Mobile Apps/tumblr1/tumblr/tumblr/PhotosViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:tumblr.xcodeproj">
    </FileRef>
    <FileRef
