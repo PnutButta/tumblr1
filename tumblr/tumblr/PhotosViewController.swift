@@ -66,13 +66,10 @@ import AlamofireImage
             let urlString = originalSize["url"] as! String
             let url = URL(string: urlString)!
             
-            print(url)
             if cell.newPhoto != nil {
                 cell.newPhoto.af_setImage(withURL: url)
             }
-            
-            
-            
+
         }
        /*
             if let urlly = url {
