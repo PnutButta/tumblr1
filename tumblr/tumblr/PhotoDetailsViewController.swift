@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class PhotoDetailsViewController: UIViewController {
 
+    var photoUrl: String!
     @IBOutlet weak var details: UIImageView!
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let url = URL(string: photoUrl)!
+        if details != nil {
+            details.af_setImage(withURL: url)
+        }
     }
 
     override func didReceiveMemoryWarning() {

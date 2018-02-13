@@ -69,18 +69,31 @@ import AlamofireImage
             if cell.newPhoto != nil {
                 cell.newPhoto.af_setImage(withURL: url)
             }
-
         }
-       /*
-            if let urlly = url {
-                print (urlly)
-                cell.newImage.af_setImage(withURL: urlly)
-            }
-    
-        } */
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell =  sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
         
+        var destinationViewController = segue.destination as! PhotoDetailsViewController
+        var urlpassed = ""
+        let post = posts[indexPath.row]
+        // photos is NOT nil, we can use it!
+        if let photos = post["photos"] as? [[String: Any]] {
+            
+            // TODO: Get the photo url
+            let photo = photos[0]
+            let originalSize = photo["original_size"] as! [String: Any]
+            let urlString = originalSize["url"] as! String
+            urlpassed = urlString
+        }
+        destinationViewController.photoUrl = urlpassed
+        
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
