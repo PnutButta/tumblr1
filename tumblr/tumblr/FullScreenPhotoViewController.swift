@@ -33,7 +33,7 @@ class FullScreenPhotoViewController: UIViewController,  UIScrollViewDelegate {
     @IBAction func tapToZoom(_ sender: UITapGestureRecognizer) {
         let location = sender.location(in: view)
         fullPhoto.isUserInteractionEnabled = true
-        fullPhoto.addGestureRecognizer(UITapGestureRecognizer)
+        //fullPhoto.addGestureRecognizer(UITap)
         performSegue(withIdentifier: "Zoom", sender: nil)
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
