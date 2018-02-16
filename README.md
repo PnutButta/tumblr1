@@ -50,34 +50,33 @@ The following **required** user stories are complete:
     
 - [ x] User can tab an image to view a larger image in a detail view (5pts)
     
-    The following **stretch** user stories are implemented:
+The following **stretch** user stories are implemented:
+
+- [ ] Add Avatar and Publish Dates (+2pt)
+- [x ] Zoomable Photo View (+2pt)
+- [ ] Infinite Scrolling (+2pt)
+
+The following **additional** user stories are implemented:
+
+- [ ] List anything else that you can get done to improve the app functionality! (+1-3pts)
+
+Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
+
+1.
+2.
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='https://i.imgur.com/VXU08QE.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
     
-    - [ ] Add Avatar and Publish Dates (+2pt)
-    - [x ] Zoomable Photo View (+2pt)
-    - [ ] Infinite Scrolling (+2pt)
+## Notes
+Describe any challenges encountered while building the app.
     
-    The following **additional** user stories are implemented:
-    
-    - [ ] List anything else that you can get done to improve the app functionality! (+1-3pts)
-    
-    Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
-    
-    1.
-    2.
-    
-    ## Video Walkthrough
-    
-    Here's a walkthrough of implemented user stories:
-    
-    <img src='https://i.imgur.com/VXU08QE.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-    
-    GIF created with [LiceCap](http://www.cockos.com/licecap/).
-    
-    ## Notes
-    
-    Describe any challenges encountered while building the app.
-    
-    ## License
+## License
     
         Copyright [yyyy] [name of copyright owner]
         
