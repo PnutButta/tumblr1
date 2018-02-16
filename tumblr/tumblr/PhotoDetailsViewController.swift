@@ -28,6 +28,10 @@ class PhotoDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationViewController = segue.destination as! FullScreenPhotoViewController
+        destinationViewController.photoUrl = self.photoUrl
+    }
 
     /*
     // MARK: - Navigation

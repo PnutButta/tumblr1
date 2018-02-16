@@ -19,11 +19,10 @@ import AlamofireImage
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.rowHeight = 200
+        tableView.rowHeight = 250
         /// Network request snippet
        
         let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
-        // let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         session.configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         
@@ -32,8 +31,7 @@ import AlamofireImage
                 print(error.localizedDescription)
             } else if let data = data,
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-             //   print(dataDictionary)
-                
+
                 // Get the dictionary from the response key
                 let responseDictionary = dataDictionary["response"] as! [String: Any]
                 
@@ -77,23 +75,19 @@ import AlamofireImage
         let cell =  sender as! UITableViewCell
         let indexPath = tableView.indexPath(for: cell)!
         
-        var destinationViewController = segue.destination as! PhotoDetailsViewController
+        let destinationViewController = segue.destination as! PhotoDetailsViewController
         var urlpassed = ""
-        let post = posts[indexPath.row]
-        // photos is NOT nil, we can use it!
+        let post = posts[indexPath.row] // photos is NOT nil, we can use it!
+        
         if let photos = post["photos"] as? [[String: Any]] {
-            
-            // TODO: Get the photo url
             let photo = photos[0]
             let originalSize = photo["original_size"] as! [String: Any]
             let urlString = originalSize["url"] as! String
             urlpassed = urlString
         }
         destinationViewController.photoUrl = urlpassed
-        
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
