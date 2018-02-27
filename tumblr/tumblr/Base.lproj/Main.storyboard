@@ -22,15 +22,15 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="204" id="uF3-ag-s7j" customClass="PhotoCell" customModule="tumblr">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="204"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="215" id="uF3-ag-s7j" customClass="PhotoCell" customModule="tumblr">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="215"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uF3-ag-s7j" id="c8S-JW-Ogw" customClass="PhotoCell" customModule="tumblr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="203.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="214.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kfA-NM-evl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="203.5"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kfA-NM-evl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="214.5"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -42,6 +42,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="newPhoto" destination="kfA-NM-evl" id="f9C-Xv-Xed"/>
+                                            <segue destination="nlD-LN-R32" kind="push" id="FPV-3M-B5N"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -65,6 +66,79 @@
             </objects>
             <point key="canvasLocation" x="392.80000000000001" y="33.733133433283363"/>
         </scene>
+        <!--Photo Details View Controller-->
+        <scene sceneID="cMV-nW-Nye">
+            <objects>
+                <viewController id="nlD-LN-R32" customClass="PhotoDetailsViewController" customModule="tumblr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TpI-UQ-tNu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pD1-in-tFi">
+                                <rect key="frame" x="0.0" y="189" width="375" height="200"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pD1-in-tFi" firstAttribute="top" secondItem="6s6-I6-e4V" secondAttribute="top" constant="125" id="TKJ-dt-muy"/>
+                            <constraint firstItem="pD1-in-tFi" firstAttribute="trailing" secondItem="6s6-I6-e4V" secondAttribute="trailing" id="W0M-2f-fbx"/>
+                            <constraint firstItem="pD1-in-tFi" firstAttribute="leading" secondItem="6s6-I6-e4V" secondAttribute="leading" id="wJO-2Z-0n6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6s6-I6-e4V"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="soF-FR-Npg"/>
+                    <connections>
+                        <outlet property="details" destination="pD1-in-tFi" id="P1N-NG-yZn"/>
+                        <segue destination="yxE-fW-ESi" kind="presentation" identifier="Zoom" modalTransitionStyle="crossDissolve" id="GY0-4d-PYs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="78b-ho-TNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="27"/>
+        </scene>
+        <!--Full Screen Photo View Controller-->
+        <scene sceneID="H33-K2-Doy">
+            <objects>
+                <viewController storyboardIdentifier="fullScreen" id="yxE-fW-ESi" userLabel="Full Screen Photo View Controller" customClass="FullScreenPhototViewController" customModule="tumblr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bKt-f9-7p1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" maximumZoomScale="9" translatesAutoresizingMaskIntoConstraints="NO" id="ZOA-EJ-0NJ">
+                                <rect key="frame" x="0.0" y="84" width="375" height="396"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ohF-lA-uKB">
+                                        <rect key="frame" x="0.0" y="100" width="375" height="196"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="bij-cL-ECg" appends="YES" id="STP-Ds-UKc"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="yxE-fW-ESi" id="4cS-cA-gZB"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="qpF-U9-fuh"/>
+                    </view>
+                    <connections>
+                        <outlet property="fullPhoto" destination="ohF-lA-uKB" id="414-Uw-vgb"/>
+                        <outlet property="scrollView" destination="ZOA-EJ-0NJ" id="bjM-F6-JjN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZC0-sx-iO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bij-cL-ECg">
+                    <connections>
+                        <action selector="tapToZoom:" destination="yxE-fW-ESi" id="rrB-h3-hID"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2604" y="20.239880059970016"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="0c9-Zl-CBD">
             <objects>
@@ -83,5 +157,26 @@
             </objects>
             <point key="canvasLocation" x="-313" y="34"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Bz2-oC-vup">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="18g-uy-4hA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hhh-ru-Ez9">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nlD-LN-R32" kind="relationship" relationship="rootViewController" id="wPB-cG-bLR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f1M-uA-0Rb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116.8" y="27.886056971514247"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="FPV-3M-B5N"/>
+    </inferredMetricsTieBreakers>
 </document>
